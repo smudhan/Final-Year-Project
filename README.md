@@ -29,7 +29,6 @@ To ensure the Digital Twin is a true "twin", the `joint_feedback_node.py` proces
 
 
 <img width="479" height="492" alt="Screenshot from 2026-05-17 19-39-33" src="https://github.com/user-attachments/assets/21900638-97ac-487d-a38c-4e0f0af8b7bc" />
-<img width="479" height="492" alt="Screenshot from 2026-05-17 19-39-33" src="https://github.com/user-attachments/assets/582986af-ba5c-4979-9d94-5ad16b211fe9" />
 
 ---
 
