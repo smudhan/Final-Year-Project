@@ -10,37 +10,12 @@ This repository contains the source code, hardware descriptions, and simulation 
 *   **ROS Integration:** Fully built on the ROS framework, ensuring modularity, scalability, and compatibility with a vast ecosystem of robotics libraries.
 *   **Real-Time Joint Feedback:** Continuous monitoring and updating of joint states utilizing dedicated joint feedback nodes.
 
-
+---
 ## 📂 Project Structure (ROS Workspace)
 
-Final-Year-Project/
-│
-├── src/
-│   ├── my_robot_description/           # Package containing physical and visual properties
-│   │   ├── CMakeLists.txt              # Build configuration for the description package
-│   │   ├── package.xml                 # Package metadata and dependencies
-│   │   ├── launch/
-│   │   │   └── display.launch.py       # Launch file to initialize RViz and the Digital Twin
-│   │   ├── meshes/                     # 3D CAD files (STL) for visualization and collision
-│   │   │   ├── armlink1urdf.stl
-│   │   │   ├── armlink2urdf.stl
-│   │   │   ├── baseplatetop.stl
-│   │   │   ├── baseplateurdf.stl
-│   │   │   └── linkoneassembly.stl
-│   │   ├── urdf/                       # Unified Robot Description Format files
-│   │   │   ├── robot.urdf              # Main robot description file for Digital Twin
-│   │   │   └── oldrobot.urdf           # Legacy/backup URDF structure
-│   │   └── scripts/
-│   │       └── joint_feedback_node.py  # Node to publish real-time joint states to the twin
-│   │
-│   └── serial_communication/           # Package handling hardware-software bridge
-│       ├── CMakeLists.txt
-│       ├── package.xml
-│       ├── setup.py                    
-│       └── serial_communication/
-│           └── serial_node.py          # Node handling bi-directional serial comms with hardware
+<img width="794" height="594" alt="image" src="https://github.com/user-attachments/assets/9bd48023-863c-4c93-9bda-ee386256e74c" />
 
-
+---
 ## ⚙️ System Architecture
 
 ### 1. Digital Twin & Visualization (`my_robot_description`)
@@ -51,6 +26,8 @@ Since the project focuses on a low-cost approach, the physical arm is controlled
 
 ### 3. State Synchronization (`joint_feedback_node.py`)
 To ensure the Digital Twin is a true "twin", the `joint_feedback_node.py` processes the incoming hardware data and broadcasts it to the ROS `/joint_states` topic. This ensures the 3D simulation mirrors the physical arm with near-zero latency.
+
+
 <img width="479" height="492" alt="Screenshot from 2026-05-17 19-39-33" src="https://github.com/user-attachments/assets/21900638-97ac-487d-a38c-4e0f0af8b7bc" />
 <img width="479" height="492" alt="Screenshot from 2026-05-17 19-39-33" src="https://github.com/user-attachments/assets/582986af-ba5c-4979-9d94-5ad16b211fe9" />
 
