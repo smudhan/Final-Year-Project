@@ -1,0 +1,88 @@
+<robot name="test_robot">
+
+  <link name="base_link"/>
+
+  <link name="link_1">
+    <visual>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/baseplateurdf.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link_2">
+    <visual>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/baseplatetop.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link_3">
+    <visual>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/armlink1urdf.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link_4">
+    <visual>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/armlink2urdf.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link_5">
+    <visual>
+      <geometry>
+        <mesh filename="package://my_robot_description/meshes/linkoneassembly.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- Fixed base -->
+  <joint name="joint_1" type="fixed">
+    <parent link="base_link"/>
+    <child link="link_1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Base rotation -->
+  <joint name="joint_2" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin xyz="0 0 0.056" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Shoulder -->
+  <joint name="joint_3" type="revolute">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <origin xyz="0 0.015 0.04" rpy="0 1.5708 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Elbow -->
+  <joint name="joint_4" type="revolute">
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <origin xyz="0 0.119 0.0013" rpy="0 3.14159 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.327" upper="2.327" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Elbow -->
+  <joint name="joint_5" type="revolute">
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <origin xyz="0 0.09 0.01" rpy="-1.576 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.327" upper="2.327" effort="10" velocity="1"/>
+  </joint>
+
+</robot>
